@@ -1,5 +1,5 @@
 {
-  "name": "generator-kodi-script",
+  "name": "generator-kodi",
   "version": "0.0.0",
   "description": "Creates the basic structure for a kodi script, written in python.",
   "homepage": "www.kodi.tv",
@@ -48,7 +48,7 @@
       "mocha": true
     }
   },
-  "repository": "xbmc/generator-kodi-script",
+  "repository": "xbmc/generator-kodi",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"

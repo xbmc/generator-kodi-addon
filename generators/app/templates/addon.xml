@@ -3,10 +3,17 @@
     <requires>
         <import addon="xbmc.python" version="<%= props.kodiVersion %>"/>
     </requires>
-    <extension point="xbmc.python.script" library="script.py">
-        <provides>executable</provides>
-    </extension>
-    <extension point="xbmc.addon.metadata" name="trakt.metadata">
+    <% if (props.type == 'Contextmenu') {%><extension point="kodi.context.item" library="context.py">
+    <item>
+        <label>Change me</label>
+        <visible>True</visible>
+    </item>
+    </extension><% } %><% if (props.type == 'Module') {%><extension point="xbmc.python.module" library="lib"/><% } %><% if (props.type == 'Plugin') {%><extension point="xbmc.python.pluginsource" library="plugin.py">
+        <provides><%= provides %></provides>
+    </extension><% } %><% if (props.type == 'Resource') {%><extension point="kodi.resource.images" compile="false" type="skinbackgrounds"/><% } %><% if (props.type == 'Script') {%><extension point="xbmc.python.script" library="script.py">
+        <provides><%= provides %></provides>
+    </extension><% } %><% if (props.type == 'Service') {%><extension point="xbmc.service" library="service.py" start="<%= props.start %>"/><% } %>
+    <extension point="xbmc.addon.metadata">
         <summary lang="en"><%= props.summary %></summary>
         <description lang="en"></description>
         <language></language>
@@ -18,8 +25,8 @@
         <source><%= props.source %></source>
         <news></news>
         <assets>
-                <icon>resources/icon.png</icon>
-                <fanart>resources/fanart.jpg</fanart>
-            </assets>
+            <icon>resources/icon.png</icon>
+            <fanart>resources/fanart.jpg</fanart>
+        </assets>
     </extension>
 </addon>
