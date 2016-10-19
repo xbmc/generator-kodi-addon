@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="<%= props.scriptid %>" name="<%= props.scriptname %>" version="0.0.1" provider-name="<%= props.authors %>">
+    <requires>
+        <import addon="xbmc.python" version="2.24.0"/>
+    </requires>
+    <extension point="xbmc.python.script" library="script.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata" name="trakt.metadata">
+        <summary lang="en"><%= props.summary %></summary>
+        <description lang="en"></description>
+        <language></language>
+        <platform><%= props.platforms %></platform>
+        <license><%= props.license %></license>
+        <forum></forum>
+        <website><%= props.website %></website>
+        <email></email>
+        <source><%= props.source %></source>
+    </extension>
+</addon>
