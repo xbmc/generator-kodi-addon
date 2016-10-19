@@ -1,6 +1,8 @@
 'use strict';
-var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+var mkdirp = require('mkdirp');
+var path = require('path');
+var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
 module.exports = yeoman.Base.extend({
@@ -10,31 +12,46 @@ module.exports = yeoman.Base.extend({
       'Welcome to the awesome ' + chalk.red('generator-kodi-script') + ' generator!'
     ));
 
+    var kodiVersion = [
+      { name: 'Krypton', value: '2.25.0' },
+      { name: 'Jarvis', value: '2.24.0' }
+    ];
+
     var prompts = [{
       type: 'input',
-      name: 'authorName',
-      message: 'Your name?'
-    },{
-      type: 'input',
       name: 'scriptid',
-      message: 'Your script id, it should be in the format script.name and not contain spaces?'
+      message: 'Your script id, it should be in the format script.name and not contain spaces? (for e.g. script.test.hello)',
+      validate: function (str) {
+        return str.length > 'script.'.length;
+      }
     },
     {
       type: 'input',
       name: 'scriptname',
-      message: 'Your script name should be easily readable?'
+      message: 'Your script name should be easily readable? (for e.g. Hello World)',
+      validate: function (str) {
+        return str.length > 2;
+      }
+    },
+    {
+      type: 'list',
+      name: 'kodiVersion',
+      message: 'Choose the minimal Kodi Version your targeting.',
+      choices: kodiVersion,
+      default: 0
     },
     {
       type: 'checkbox',
       name: 'platforms',
       message: 'Which platforms does this run with?',
-      choices: ['all', 'android']
+      choices: ['all', 'android', 'linux', 'osx', 'windx']
     },
     {
       type: 'list',
       name: 'license',
-      message: 'Choose your license',
-      choices: ['Apache 2.0', 'MIT', 'GNU']
+      message: 'Choose your license.',
+      choices: ['Apache 2.0', 'MIT', 'GNU'],
+      default: 0
     },
     {
       type: 'input',
@@ -44,22 +61,27 @@ module.exports = yeoman.Base.extend({
     {
       type: 'input',
       name: 'summary',
-      message: 'Describe, what your script does'
+      message: 'What does your script do?'
+    },
+    {
+      type: 'input',
+      name: 'authorName',
+      message: 'Your real name? We are using this for the license creation.'
     },
     {
       type: 'input',
       name: 'email',
-      message: 'Your email address?'
+      message: 'Your email address? (for e.g. john.doe@gmail.com)'
     },
     {
       type: 'input',
       name: 'website',
-      message: 'Your website URL?'
+      message: 'Your website URL? (for e.g. www.kodi.tv)'
     },
     {
       type: 'input',
       name: 'source',
-      message: 'URL where the source is hosted?'
+      message: 'Where is the source code of your addon located? (for e.g. www.github.com/username/repo)'
     }
     ];
 
@@ -69,15 +91,23 @@ module.exports = yeoman.Base.extend({
     }.bind(this));
   },
 
+    default: function () {
+    if (path.basename(this.destinationPath()) !== this.props.scriptid) {
+      this.log(
+        'Your generator must be inside a folder named ' + this.props.scriptid + '\n' +
+        'I\'ll automatically create this folder.'
+      );
+      mkdirp(this.props.scriptid);
+      this.destinationRoot(this.destinationPath(this.props.scriptid));
+    }
+  },
+
   writing: function () {
     this.fs.copyTpl(
-      this.templatePath('addon.xml'),
-      this.destinationPath('addon.xml'),
-      { props: this.props }
-    );
-    this.fs.copyTpl(
-      this.templatePath('README.md'),
-      this.destinationPath('README.md')
+      this.templatePath('*'),
+      this.destinationPath(''),
+      { props: this.props,
+        platforms: this.props.platforms.toString().replace(/[,]/g, ' ') }
     );
     this.fs.copyTpl(
       this.templatePath('tests/**'),
@@ -86,6 +116,10 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('resources/**'),
       this.destinationPath('resources/')
+    );
+    this.fs.copy(
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore')
     );
     this.composeWith('license', {
         options: {
@@ -96,5 +130,10 @@ module.exports = yeoman.Base.extend({
       }, {
         local: require.resolve('generator-license/app')
       });
+    this.composeWith('git-init', {
+      options: { commit: 'Created initial addon structure' }
+    }, {
+      local: require.resolve('generator-git-init')
+    });
   },
 });
