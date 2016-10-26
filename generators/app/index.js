@@ -163,11 +163,6 @@ module.exports = yeoman.Base.extend({
       type: 'input',
       name: 'website',
       message: 'Your website URL? (for e.g. www.kodi.tv)'
-    },
-    {
-      type: 'input',
-      name: 'source',
-      message: 'Where is the source code of your addon located? (for e.g. www.github.com/username/repo)'
     }
     );
 

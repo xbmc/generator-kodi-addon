@@ -22,7 +22,7 @@
         <forum></forum>
         <website><%= props.website %></website>
         <email><%= props.email %></email>
-        <source><%= props.source %></source>
+        <source></source>
         <news></news>
         <assets>
             <icon>resources/icon.png</icon>
