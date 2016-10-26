@@ -16,12 +16,12 @@ Then generate your new project:
 yo kodi
 ```
 
-## Getting To Know Yeoman
+## Development
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+ - Check out this project via git
+ - Browse to the folder via commandline
+ - Do `npm link`
+ - Now you can use `yo kodi`, which should include your changes.
 
 ## License
 
