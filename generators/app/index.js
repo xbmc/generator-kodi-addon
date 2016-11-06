@@ -229,19 +229,23 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if (this.props.type != 'Module') {
+    if (this.props.type != 'Module' && this.props.type != 'Resource') {
       this.fs.copy(
         this.templatePath('tests/**'),
         this.destinationPath('tests/')
       );
     }
 
-    if (this.props.type != 'Module') {
+    if (this.props.type != 'Module' && this.props.type != 'Resource') {
       this.fs.copyTpl(
         this.templatePath('resources/**'),
         this.destinationPath('resources/'),
         { props: this.props }
       );
+    }
+
+    if (this.props.type == 'Resource') {
+      mkdirp(this.destinationPath('resources/'));
     }
 
     this.composeWith('license', {
