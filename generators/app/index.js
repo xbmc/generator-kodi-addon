@@ -239,7 +239,8 @@ module.exports = yeoman.Base.extend({
     if (this.props.type != 'Module') {
       this.fs.copyTpl(
         this.templatePath('resources/**'),
-        this.destinationPath('resources/')
+        this.destinationPath('resources/'),
+        { props: this.props }
       );
     }
 
