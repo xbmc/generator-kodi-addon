@@ -5,7 +5,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
-module.exports = yeoman.Base.extend({
+module.exports = yeoman.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
@@ -136,7 +136,7 @@ module.exports = yeoman.Base.extend({
       type: 'list',
       name: 'license',
       message: 'Choose your license.',
-      choices: ['Apache 2.0', 'MIT', 'GNU'],
+      choices: require('generator-license').licenses,
       default: 0
     },
     {
@@ -248,19 +248,13 @@ module.exports = yeoman.Base.extend({
       mkdirp(this.destinationPath('resources/'));
     }
 
-    this.composeWith('license', {
-        options: {
+      this.composeWith(require.resolve('generator-license/app'), {
           name: this.props.authorName,
           email: this.props.email,
-          website: this.props.website
-        }
-      }, {
-        local: require.resolve('generator-license/app')
+          website: this.props.website,
+          license: this.props.license
       });
-    this.composeWith('git-init', {
-      options: { commit: 'Created initial addon structure' }
-    }, {
-      local: require.resolve('generator-git-init')
-    });
+    this.composeWith(require.resolve('generator-git-init'), { commit: 'Created initial addon structure' }
+    );
   },
 });
