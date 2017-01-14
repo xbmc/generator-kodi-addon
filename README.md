@@ -1,4 +1,4 @@
-# generator-kodi [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/Razzeee/generator-kodi.svg?branch=master)](https://travis-ci.org/Razzeee/generator-kodi) [![Dependency Status][https://david-dm.org/razzeee/generator-kodi.svg]][https://david-dm.org/razzeee/generator-kodi] [![Coverage Status](https://coveralls.io/repos/github/Razzeee/generator-kodi/badge.svg?branch=master)](https://coveralls.io/github/Razzeee/generator-kodi?branch=master)
+# generator-kodi [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/Razzeee/generator-kodi.svg?branch=master)](https://travis-ci.org/Razzeee/generator-kodi) [![Dependency Status](https://david-dm.org/razzeee/generator-kodi.svg)](https://david-dm.org/razzeee/generator-kodi) [![Coverage Status](https://coveralls.io/repos/github/Razzeee/generator-kodi/badge.svg?branch=master)](https://coveralls.io/github/Razzeee/generator-kodi?branch=master)
 > Creates the basic structure for a kodi script, written in python.
 
 ## Installation
