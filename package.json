@@ -2,7 +2,7 @@
   "name": "generator-kodi-addon",
   "version": "0.0.1",
   "description": "Creates the basic structure for a kodi addon, written in python.",
-  "homepage": "www.kodi.tv",
+  "homepage": "https://github.com/xbmc/generator-kodi-addon#installation",
   "author": {
     "name": "Kolja Lampe",
     "email": "razzeee@gmail.com",
