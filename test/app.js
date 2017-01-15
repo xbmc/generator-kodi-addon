@@ -39,7 +39,7 @@ describe('generate contextmenu', function () {
       'LICENSE'
     ]);
   });
-  it('check contextmenu file content', function () {
+  it('check contextmenu addon.xml content', function () {
     assert.fileContent('addon.xml', '<addon id="contextmenu.test" ');
     assert.fileContent('addon.xml', '<extension point="kodi.context.item" library="context.py">');
     assert.fileContent('addon.xml', ' provider-name="Me">');
@@ -76,7 +76,7 @@ describe('generate module', function () {
       'LICENSE'
     ]);
   });
-  it('check module file content', function () {
+  it('check module addon.xml content', function () {
     assert.fileContent('addon.xml', '<addon id="script.module.test" ');
     assert.fileContent('addon.xml', '<extension point="xbmc.python.module" library="lib"/>');
     assert.fileContent('addon.xml', ' provider-name="Me, Him">');
@@ -122,7 +122,7 @@ describe('generate plugin', function () {
       'LICENSE'
     ]);
   });
-  it('check plugin file content', function () {
+  it('check plugin addon.xml content', function () {
     assert.fileContent('addon.xml', '<addon id="plugin.test" ');
     assert.fileContent('addon.xml', '<extension point="xbmc.python.pluginsource" library="plugin.py">');
     assert.fileContent('addon.xml', ' provider-name="Me">');
@@ -160,7 +160,7 @@ describe('generate resource', function () {
       'LICENSE'
     ]);
   });
-  it('check resource file content', function () {
+  it('check resource addon.xml content', function () {
     assert.fileContent('addon.xml', '<addon id="resource.test" ');
     assert.fileContent('addon.xml', '<extension point="kodi.resource.images" compile="false" type="skinbackgrounds"/>');
     assert.fileContent('addon.xml', ' provider-name="Me">');
@@ -206,7 +206,7 @@ describe('generate script', function () {
       'LICENSE'
     ]);
   });
-  it('check script file content', function () {
+  it('check script addon.xml content', function () {
     assert.fileContent('addon.xml', '<addon id="script.test" ');
     assert.fileContent('addon.xml', '<extension point="xbmc.python.script" library="script.py">');
     assert.fileContent('addon.xml', ' provider-name="Me, him">');
@@ -254,7 +254,7 @@ describe('generate service', function () {
     ]);
   });
 
-  it('check service file content', function () {
+  it('check service addon.xml content', function () {
     assert.fileContent('addon.xml', '<addon id="service.test" ');
     assert.fileContent('addon.xml', '<extension point="xbmc.service" library="service.py" start="login"/>');
     assert.fileContent('addon.xml', ' provider-name="Me">');
