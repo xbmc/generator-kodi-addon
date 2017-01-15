@@ -24,6 +24,7 @@
         <email><%= props.email %></email>
         <source></source>
         <news></news>
+        <disclaimer></disclaimer>
         <assets>
             <icon>resources/icon.png</icon>
             <fanart>resources/fanart.jpg</fanart>
