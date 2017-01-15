@@ -4,6 +4,7 @@ var mkdirp = require('mkdirp');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
+var helper = require('./validationHelper');
 
 module.exports = yeoman.extend({
   prompting: function () {
@@ -41,18 +42,14 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format context.name.name and not contain spaces. (for e.g. context.hello.menu)',
-        validate: function (str) {
-          return str.length > 'context.'.length;
-        }
+        validate: helper.validateContextmenuName
       });
     } else if (this.props.type == 'Module') {
       prompts.push({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format script.module.name and not contain spaces. (for e.g. script.module.hello)',
-        validate: function (str) {
-          return str.length > 'script.module.'.length;
-        }
+        validate: helper.validateModuleName
       });
     } else if (this.props.type == 'Plugin') {
       prompts.push({
@@ -64,18 +61,14 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format plugin.name and not contain spaces. (for e.g. plugin.test.hello)',
-        validate: function (str) {
-          return str.length > 'plugin.'.length;
-        }
+        validate: helper.validatePluginName
       });
     } else if (this.props.type == 'Resource') {
       prompts.push({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format resource.resourcetype.name and not contain spaces. (for e.g. resource.images.hello)',
-        validate: function (str) {
-          return str.length > 'resource.'.length;
-        }
+        validate: helper.validateResourceName
       });
     } else if (this.props.type == 'Service') {
       prompts.push({
@@ -87,9 +80,7 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format service.name and not contain spaces. (for e.g. service.test.hello)',
-        validate: function (str) {
-          return str.length > 'service.'.length;
-        }
+        validate: helper.validateServiceName
       });
     } else if (this.props.type == 'Script') {
       prompts.push({
@@ -101,9 +92,7 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format script.name and not contain spaces. (for e.g. script.test.hello)',
-        validate: function (str) {
-          return str.length > 'script.'.length;
-        }
+        validate: helper.validateScriptName
       });
     }
 
@@ -111,9 +100,7 @@ module.exports = yeoman.extend({
       type: 'input',
       name: 'scriptname',
       message: 'Your addon name, it should be easily readable. (for e.g. Hello World)',
-      validate: function (str) {
-        return str.length > 2;
-      }
+      validate: helper.validateScriptNameLength
     }, {
       type: 'list',
       name: 'kodiVersion',
