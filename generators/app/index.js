@@ -6,7 +6,7 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
 module.exports = yeoman.extend({
-  prompting: function() {
+  prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the awesome ' + chalk.red('generator-kodi') + ' generator!'
@@ -20,12 +20,12 @@ module.exports = yeoman.extend({
       default: 0
     }];
 
-    return this.prompt(prompts).then(function(props) {
+    return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
   },
-  askForAddonData: function() {
+  askForAddonData: function () {
     var prompts = [];
 
     var kodiVersion = [{
@@ -41,19 +41,19 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format context.name.name and not contain spaces. (for e.g. context.hello.menu)',
-        validate: function(str) {
+        validate: function (str) {
           return str.length > 'context.'.length;
         }
-      })
+      });
     } else if (this.props.type == 'Module') {
       prompts.push({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format script.module.name and not contain spaces. (for e.g. script.module.hello)',
-        validate: function(str) {
+        validate: function (str) {
           return str.length > 'script.module.'.length;
         }
-      })
+      });
     } else if (this.props.type == 'Plugin') {
       prompts.push({
         type: 'checkbox',
@@ -64,19 +64,19 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format plugin.name and not contain spaces. (for e.g. plugin.test.hello)',
-        validate: function(str) {
+        validate: function (str) {
           return str.length > 'plugin.'.length;
         }
-      })
+      });
     } else if (this.props.type == 'Resource') {
       prompts.push({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format resource.resourcetype.name and not contain spaces. (for e.g. resource.images.hello)',
-        validate: function(str) {
+        validate: function (str) {
           return str.length > 'resource.'.length;
         }
-      })
+      });
     } else if (this.props.type == 'Service') {
       prompts.push({
         type: 'list',
@@ -87,10 +87,10 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format service.name and not contain spaces. (for e.g. service.test.hello)',
-        validate: function(str) {
+        validate: function (str) {
           return str.length > 'service.'.length;
         }
-      })
+      });
     } else if (this.props.type == 'Script') {
       prompts.push({
         type: 'checkbox',
@@ -101,17 +101,17 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'scriptid',
         message: 'Your addon id, it should be in the format script.name and not contain spaces. (for e.g. script.test.hello)',
-        validate: function(str) {
+        validate: function (str) {
           return str.length > 'script.'.length;
         }
-      })
+      });
     }
 
     prompts.push({
       type: 'input',
       name: 'scriptname',
       message: 'Your addon name, it should be easily readable. (for e.g. Hello World)',
-      validate: function(str) {
+      validate: function (str) {
         return str.length > 2;
       }
     }, {
@@ -153,13 +153,13 @@ module.exports = yeoman.extend({
       message: 'Your website URL? (for e.g. www.kodi.tv)'
     });
 
-    return this.prompt(prompts).then(function(props) {
+    return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       this.props = Object.assign(this.props, props);
     }.bind(this));
   },
 
-  default: function() {
+  default: function () {
     if (path.basename(this.destinationPath()) !== this.props.scriptid) {
       this.log(
         'Your generator must be inside a folder named ' + this.props.scriptid + '\n' +
@@ -170,7 +170,7 @@ module.exports = yeoman.extend({
     }
   },
 
-  writing: function() {
+  writing: function () {
     this.fs.copyTpl(
       this.templatePath('addon.xml'),
       this.destinationPath('addon.xml'), {
@@ -243,5 +243,5 @@ module.exports = yeoman.extend({
     this.composeWith(require.resolve('generator-git-init'), {
       commit: 'Created initial addon structure'
     });
-  },
+  }
 });

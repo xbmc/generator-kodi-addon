@@ -1,6 +1,6 @@
 {
   "name": "generator-kodi",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Creates the basic structure for a kodi script, written in python.",
   "homepage": "www.kodi.tv",
   "author": {
