@@ -44,6 +44,9 @@
   },
   "eslintConfig": {
     "extends": "xo-space",
+    "rules": {
+      "eqeqeq": 0
+    },
     "env": {
       "mocha": true
     }
