@@ -196,7 +196,7 @@ module.exports = yeoman.extend({
       );
     } else if (this.props.type == 'Service') {
       this.fs.copy(
-        this.templatePath('script.py'),
+        this.templatePath('service.py'),
         this.destinationPath('service.py')
       );
     }
