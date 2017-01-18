@@ -1,8 +1,8 @@
 import xbmcaddon
 import xbmcgui
 
-addon       = xbmcaddon.Addon()
-addonname   = addon.getAddonInfo('name')
+addon = xbmcaddon.Addon()
+addonname = addon.getAddonInfo('name')
 
 line1 = "Hello World!"
 

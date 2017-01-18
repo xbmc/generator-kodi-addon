@@ -181,7 +181,7 @@ module.exports = yeoman.extend({
 
     if (this.props.type == 'Contextmenu') {
       this.fs.copy(
-        this.templatePath('script.py'),
+        this.templatePath('context.py'),
         this.destinationPath('context.py')
       );
     } else if (this.props.type == 'Plugin') {
