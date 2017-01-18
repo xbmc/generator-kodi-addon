@@ -1,5 +1,7 @@
-# generator-kodi-addon [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/xbmc/generator-kodi-addon.svg?branch=master)](https://travis-ci.org/xbmc/generator-kodi-addon) [![Dependency Status](https://david-dm.org/xbmc/generator-kodi-addon.svg)](https://david-dm.org/xbmc/generator-kodi-addon) [![Coverage Status](https://coveralls.io/repos/github/xbmc/generator-kodi-addon/badge.svg?branch=master)](https://coveralls.io/github/xbmc/generator-kodi-addon?branch=master)
+# generator-kodi-addon [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Development Dependency Status][daviddm-image-dev]][daviddm-url-dev] [![Coverage percentage][coveralls-image]][coveralls-url]
 > Creates the basic structure for a kodi script, written in python.
+
+![Example](pictures/example-script.gif)
 
 ## Installation
 
@@ -34,5 +36,7 @@ Apache-2.0 © [Kolja Lampe]()
 [travis-url]: https://travis-ci.org/xbmc/generator-kodi-addon
 [daviddm-image]: https://david-dm.org/xbmc/generator-kodi-addon.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/xbmc/generator-kodi-addon
+[daviddm-image-dev]: https://david-dm.org/xbmc/generator-kodi-addon/dev-status.svg
+[daviddm-url-dev]: https://david-dm.org/xbmc/generator-kodi-addon?type=dev
 [coveralls-image]: https://coveralls.io/repos/xbmc/generator-kodi-addon/badge.svg
 [coveralls-url]: https://coveralls.io/r/xbmc/generator-kodi-addon
