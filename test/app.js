@@ -29,19 +29,19 @@ describe('generate contextmenu', function () {
       'changelog.txt',
       'README.md',
       'context.py',
-      'tests/README.md',
-      'resources/__init__.py',
       'resources/language/resource.language.en_gb/strings.po',
       'resources/language/README.md',
-      'resources/lib/__init__.py',
-      'resources/lib/README.md',
-      'resources/settings.xml',
       'LICENSE'
     ]);
     assert.noFile([
       'plugin.py',
       'service.py',
-      'script.py'
+      'script.py',
+      'tests/README.md',
+      'resources/__init__.py',
+      'resources/lib/__init__.py',
+      'resources/lib/README.md',
+      'resources/settings.xml'
     ]);
   });
   it('check contextmenu addon.xml content', function () {
@@ -84,7 +84,14 @@ describe('generate module', function () {
       'context.py',
       'plugin.py',
       'service.py',
-      'script.py'
+      'script.py',
+      'tests/README.md',
+      'resources/__init__.py',
+      'resources/language/resource.language.en_gb/strings.po',
+      'resources/language/README.md',
+      'resources/lib/__init__.py',
+      'resources/lib/README.md',
+      'resources/settings.xml'
     ]);
   });
   it('check module addon.xml content', function () {
@@ -181,7 +188,14 @@ describe('generate resource', function () {
       'context.py',
       'plugin.py',
       'service.py',
-      'script.py'
+      'script.py',
+      'tests/README.md',
+      'resources/__init__.py',
+      'resources/language/resource.language.en_gb/strings.po',
+      'resources/language/README.md',
+      'resources/lib/__init__.py',
+      'resources/lib/README.md',
+      'resources/settings.xml'
     ]);
   });
   it('check resource addon.xml content', function () {

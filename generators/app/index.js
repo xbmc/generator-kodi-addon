@@ -201,7 +201,7 @@ module.exports = yeoman.extend({
       );
     }
 
-    if (this.props.type != 'Module' && this.props.type != 'Resource') {
+    if (this.props.type != 'Module' && this.props.type != 'Resource' && this.props.type != 'Contextmenu') {
       this.fs.copy(
         this.templatePath('tests/**'),
         this.destinationPath('tests/')
@@ -209,12 +209,19 @@ module.exports = yeoman.extend({
     }
 
     if (this.props.type != 'Module' && this.props.type != 'Resource') {
-      this.fs.copyTpl(
+      if (this.props.type == 'Contextmenu') {
+        this.fs.copy(
+        this.templatePath('resources/language/**'),
+        this.destinationPath('resources/language/')
+      );
+      } else {
+        this.fs.copyTpl(
         this.templatePath('resources/**'),
         this.destinationPath('resources/'), {
           props: this.props
         }
       );
+      }
     }
 
     if (this.props.type == 'Resource') {

@@ -5,7 +5,8 @@
     </requires>
     <% if (props.type == 'Contextmenu') { -%><extension point="kodi.context.item" library="context.py">
     <item>
-        <label>Change me</label>
+        <!-- This label can be changed in your strings.po -->
+        <label>32000</label>
         <visible>True</visible>
     </item>
     </extension><% } -%><% if (props.type == 'Module') {%><extension point="xbmc.python.module" library="lib"/><% } %><% if (props.type == 'Plugin') {%><extension point="xbmc.python.pluginsource" library="plugin.py">
