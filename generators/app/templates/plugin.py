@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import routing
 from xbmcgui import ListItem
 from xbmcplugin import addDirectoryItem, endOfDirectory
