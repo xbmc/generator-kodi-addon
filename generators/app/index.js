@@ -186,7 +186,7 @@ module.exports = yeoman.extend({
       );
     } else if (this.props.type == 'Plugin') {
       this.fs.copy(
-        this.templatePath('script.py'),
+        this.templatePath('plugin.py'),
         this.destinationPath('plugin.py')
       );
     } else if (this.props.type == 'Script') {

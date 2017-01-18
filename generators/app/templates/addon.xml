@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="<%= props.scriptid %>" name="<%= props.scriptname %>" version="0.0.1" provider-name="<%= props.authors %>">
     <requires>
-        <import addon="xbmc.python" version="<%= props.kodiVersion %>"/>
+        <import addon="xbmc.python" version="<%= props.kodiVersion %>"/><% if (props.type == 'Plugin') { -%><import addon="script.module.routing" version="0.2.0"/><% } -%>
     </requires>
-    <% if (props.type == 'Contextmenu') {%><extension point="kodi.context.item" library="context.py">
+    <% if (props.type == 'Contextmenu') { -%><extension point="kodi.context.item" library="context.py">
     <item>
         <label>Change me</label>
         <visible>True</visible>
     </item>
-    </extension><% } %><% if (props.type == 'Module') {%><extension point="xbmc.python.module" library="lib"/><% } %><% if (props.type == 'Plugin') {%><extension point="xbmc.python.pluginsource" library="plugin.py">
+    </extension><% } -%><% if (props.type == 'Module') {%><extension point="xbmc.python.module" library="lib"/><% } %><% if (props.type == 'Plugin') {%><extension point="xbmc.python.pluginsource" library="plugin.py">
         <provides><%= provides %></provides>
     </extension><% } %><% if (props.type == 'Resource') {%><extension point="kodi.resource.images" compile="false" type="skinbackgrounds"/><% } %><% if (props.type == 'Script') {%><extension point="xbmc.python.script" library="script.py">
         <provides><%= provides %></provides>

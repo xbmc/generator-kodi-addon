@@ -145,6 +145,7 @@ describe('generate plugin', function () {
     assert.fileContent('addon.xml', '<platform>osx windx</platform>');
     assert.fileContent('addon.xml', '<import addon="xbmc.python" version="2.25.0"/>');
     assert.fileContent('addon.xml', '<provides>video</provides>');
+    assert.fileContent('addon.xml', '<import addon="script.module.routing" version="');
   });
 });
 
