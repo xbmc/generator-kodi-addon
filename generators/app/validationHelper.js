@@ -24,6 +24,10 @@ helper.validateScriptName = function (str) {
   return str.length > 'script.'.length;
 };
 
+helper.validateSubtitleName = function (str) {
+  return str.length > 'service.subtitles.'.length;
+};
+
 helper.validateScriptNameLength = function (str) {
   return str.length > 2;
 };

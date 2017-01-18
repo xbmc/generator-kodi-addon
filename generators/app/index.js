@@ -17,7 +17,7 @@ module.exports = yeoman.extend({
       type: 'list',
       name: 'type',
       message: 'Choose the type of addon you want to create.',
-      choices: ['Contextmenu', 'Module', 'Plugin', 'Resource', 'Script', 'Service'],
+      choices: ['Contextmenu', 'Module', 'Plugin', 'Resource', 'Script', 'Service', 'Subtitle'],
       default: 0
     }];
 
@@ -93,6 +93,13 @@ module.exports = yeoman.extend({
         name: 'scriptid',
         message: 'Your addon id, it should be in the format script.name and not contain spaces. (for e.g. script.test.hello)',
         validate: helper.validateScriptName
+      });
+    } else if (this.props.type == 'Subtitle') {
+      prompts.push({
+        type: 'input',
+        name: 'scriptid',
+        message: 'Your addon id, it should be in the format service.subtitles.name and not contain spaces. (for e.g. service.subtitles.hello)',
+        validate: helper.validateSubtitleName
       });
     }
 
@@ -198,6 +205,11 @@ module.exports = yeoman.extend({
       this.fs.copy(
         this.templatePath('service.py'),
         this.destinationPath('service.py')
+      );
+    } else if (this.props.type == 'Subtitle') {
+      this.fs.copy(
+        this.templatePath('subtitle.py'),
+        this.destinationPath('subtitle.py')
       );
     }
 

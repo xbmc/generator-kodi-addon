@@ -50,6 +50,14 @@ describe('prompting validations → validateScriptName()', () => {
     assert.equal(helper.validateScriptName('script'), false);
   });
 });
+describe('prompting validations → validateSubtitleName()', () => {
+  it('should work for service.subtitles.test', () => {
+    assert.equal(helper.validateSubtitleName('service.subtitles.test'), true);
+  });
+  it('should fail when to short', () => {
+    assert.equal(helper.validateSubtitleName('service.subtitles'), false);
+  });
+});
 describe('prompting validations → validateScriptNameLength()', () => {
   it('should work for anything longer than two letters', () => {
     assert.equal(helper.validateScriptNameLength('My name'), true);
