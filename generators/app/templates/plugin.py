@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
 
 import routing
+import logging
+from resources.lib import utilities
+from resources.lib import kodiLogging
 from xbmcgui import ListItem
 from xbmcplugin import addDirectoryItem, endOfDirectory
 
+
+logger = logging.getLogger(__name__)
+kodiLogging.config()
 plugin = routing.Plugin()
 
 @plugin.route('/')

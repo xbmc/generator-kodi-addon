@@ -21,3 +21,7 @@ msgstr ""
 msgctxt "#32000"
 msgid "Example"
 msgstr ""
+
+msgctxt "#32001"
+msgid "Debug"
+msgstr ""
