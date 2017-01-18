@@ -38,6 +38,11 @@ describe('generate contextmenu', function () {
       'resources/settings.xml',
       'LICENSE'
     ]);
+    assert.noFile([
+      'plugin.py',
+      'service.py',
+      'script.py'
+    ]);
   });
   it('check contextmenu addon.xml content', function () {
     assert.fileContent('addon.xml', '<addon id="contextmenu.test" ');
@@ -74,6 +79,12 @@ describe('generate module', function () {
       'changelog.txt',
       'README.md',
       'LICENSE'
+    ]);
+    assert.noFile([
+      'context.py',
+      'plugin.py',
+      'service.py',
+      'script.py'
     ]);
   });
   it('check module addon.xml content', function () {
@@ -121,6 +132,11 @@ describe('generate plugin', function () {
       'resources/settings.xml',
       'LICENSE'
     ]);
+    assert.noFile([
+      'context.py',
+      'service.py',
+      'script.py'
+    ]);
   });
   it('check plugin addon.xml content', function () {
     assert.fileContent('addon.xml', '<addon id="plugin.test" ');
@@ -158,6 +174,13 @@ describe('generate resource', function () {
       'changelog.txt',
       'README.md',
       'LICENSE'
+    ]);
+
+    assert.noFile([
+      'context.py',
+      'plugin.py',
+      'service.py',
+      'script.py'
     ]);
   });
   it('check resource addon.xml content', function () {
@@ -205,6 +228,12 @@ describe('generate script', function () {
       'resources/settings.xml',
       'LICENSE'
     ]);
+
+    assert.noFile([
+      'context.py',
+      'plugin.py',
+      'service.py'
+    ]);
   });
   it('check script addon.xml content', function () {
     assert.fileContent('addon.xml', '<addon id="script.test" ');
@@ -251,6 +280,12 @@ describe('generate service', function () {
       'resources/lib/README.md',
       'resources/settings.xml',
       'LICENSE'
+    ]);
+
+    assert.noFile([
+      'context.py',
+      'plugin.py',
+      'script.py'
     ]);
   });
 
