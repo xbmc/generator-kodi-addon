@@ -13,7 +13,7 @@
         <provides><%= provides %></provides>
     </extension><% } %><% if (props.type == 'Resource') {%><extension point="kodi.resource.images" compile="false" type="skinbackgrounds"/><% } %><% if (props.type == 'Script') {%><extension point="xbmc.python.script" library="script.py">
         <provides><%= provides %></provides>
-    </extension><% } %><% if (props.type == 'Service') {%><extension point="xbmc.service" library="service.py" start="<%= props.start %>"/><% } %>
+    </extension><% } %><% if (props.type == 'Service') {%><extension point="xbmc.service" library="service.py" start="<%= props.start %>"/><% } %><% if (props.type == 'Subtitle') {%><extension point="xbmc.subtitle.module" library="subtitle.py" /><% } %>
     <extension point="xbmc.addon.metadata">
         <summary lang="en_GB"><%= props.summary %></summary>
         <description lang="en_GB"></description>

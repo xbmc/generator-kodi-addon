@@ -312,3 +312,56 @@ describe('generate service', function () {
     assert.fileContent('addon.xml', '<import addon="xbmc.python" version="2.25.0"/>');
   });
 });
+
+describe('generate subtitle', function () {
+  before(function () {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        type: 'Subtitle',
+        scriptid: 'subtitle.test',
+        scriptname: 'My subtitle name',
+        kodiVersion: '2.25.0',
+        platforms: 'all',
+        license: 'MIT',
+        authors: 'Me',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
+  });
+
+  it('creates subtitle files', function () {
+    assert.file([
+      'addon.xml',
+      '.gitignore',
+      'changelog.txt',
+      'README.md',
+      'subtitle.py',
+      'tests/README.md',
+      'resources/__init__.py',
+      'resources/language/resource.language.en_gb/strings.po',
+      'resources/language/README.md',
+      'resources/lib/__init__.py',
+      'resources/lib/README.md',
+      'resources/settings.xml',
+      'LICENSE'
+    ]);
+
+    assert.noFile([
+      'context.py',
+      'plugin.py',
+      'script.py',
+      'service.py'
+    ]);
+  });
+
+  it('check service addon.xml content', function () {
+    assert.fileContent('addon.xml', '<addon id="subtitle.test" ');
+    assert.fileContent('addon.xml', '<extension point="xbmc.subtitle.module" library="subtitle.py" />');
+    assert.fileContent('addon.xml', ' provider-name="Me">');
+    assert.fileContent('addon.xml', '<platform>all</platform>');
+    assert.fileContent('addon.xml', '<import addon="xbmc.python" version="2.25.0"/>');
+  });
+});
