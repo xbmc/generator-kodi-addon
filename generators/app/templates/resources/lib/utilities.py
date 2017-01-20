@@ -6,11 +6,14 @@ import re
 import sys
 import logging
 
-
+<%_ if (props.kodiVersion == '2.24.0') { -%>
 if sys.version_info >= (2, 7):
     import json as json
 else:
     import simplejson as json
+<%_ } else { -%>
+import json as json
+<% } %>
 
 # read settings
 ADDON = xbmcaddon.Addon('<%= props.scriptid %>')
