@@ -7,7 +7,8 @@ import xbmcaddon
 import xbmcgui
 
 
-logger = logging.getLogger(__name__)
+ADDON = xbmcaddon.Addon()
+logger = logging.getLogger(ADDON.getAddonInfo('id'))
 kodiLogging.config()
 
 # Put your code here, this is just an example showing

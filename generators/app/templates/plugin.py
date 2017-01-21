@@ -8,7 +8,8 @@ from xbmcgui import ListItem
 from xbmcplugin import addDirectoryItem, endOfDirectory
 
 
-logger = logging.getLogger(__name__)
+ADDON = xbmcaddon.Addon()
+logger = logging.getLogger(ADDON.getAddonInfo('id'))
 kodiLogging.config()
 plugin = routing.Plugin()
 

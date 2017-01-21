@@ -16,7 +16,7 @@ import json as json
 <% } %>
 
 # read settings
-ADDON = xbmcaddon.Addon('<%= props.scriptid %>')
+ADDON = xbmcaddon.Addon()
 
 logger = logging.getLogger(__name__)
 

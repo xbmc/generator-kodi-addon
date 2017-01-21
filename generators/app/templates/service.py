@@ -7,8 +7,9 @@ import time
 import xbmc
 
 
+ADDON = xbmcaddon.Addon()
+logger = logging.getLogger(ADDON.getAddonInfo('id'))
 kodiLogging.config()
-logger = logging.getLogger(__name__)
 
 if __name__ == '__main__':
     monitor = xbmc.Monitor()
