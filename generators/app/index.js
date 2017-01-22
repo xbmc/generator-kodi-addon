@@ -55,8 +55,8 @@ module.exports = yeoman.extend({
       });
     }
 
-    var scriptidMessage
-    var validationHelper
+    var scriptidMessage;
+    var validationHelper;
     if (this.props.type == 'Contextmenu') {
       scriptidMessage = 'Your addon id, it should be in the format context.name.name and not contain spaces. (for e.g. context.hello.menu)';
       validationHelper = helper.validateContextmenuName;
