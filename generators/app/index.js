@@ -37,73 +37,55 @@ module.exports = yeoman.extend({
       value: '2.24.0'
     }];
 
-    if (this.props.type == 'Contextmenu') {
-      prompts.push({
-        type: 'input',
-        name: 'scriptid',
-        message: 'Your addon id, it should be in the format context.name.name and not contain spaces. (for e.g. context.hello.menu)',
-        validate: helper.validateContextmenuName
-      });
-    } else if (this.props.type == 'Module') {
-      prompts.push({
-        type: 'input',
-        name: 'scriptid',
-        message: 'Your addon id, it should be in the format script.module.name and not contain spaces. (for e.g. script.module.hello)',
-        validate: helper.validateModuleName
-      });
-    } else if (this.props.type == 'Plugin') {
+    if (this.props.type == 'Plugin' || this.props.type == 'Script') {
       prompts.push({
         type: 'checkbox',
         name: 'provides',
         message: 'Your addon will provide the following media types.',
-        choices: ['audio', 'image', 'executable', 'video']
-      }, {
-        type: 'input',
-        name: 'scriptid',
-        message: 'Your addon id, it should be in the format plugin.name and not contain spaces. (for e.g. plugin.test.hello)',
-        validate: helper.validatePluginName
+        choices: ['audio', 'image', 'executable', 'game', 'video']
       });
-    } else if (this.props.type == 'Resource') {
-      prompts.push({
-        type: 'input',
-        name: 'scriptid',
-        message: 'Your addon id, it should be in the format resource.resourcetype.name and not contain spaces. (for e.g. resource.images.hello)',
-        validate: helper.validateResourceName
-      });
-    } else if (this.props.type == 'Service') {
+    }
+
+    if (this.props.type == 'Service') {
       prompts.push({
         type: 'list',
         name: 'start',
         message: 'Your service should start at:',
         choices: ['login', 'startup']
-      }, {
-        type: 'input',
-        name: 'scriptid',
-        message: 'Your addon id, it should be in the format service.name and not contain spaces. (for e.g. service.test.hello)',
-        validate: helper.validateServiceName
-      });
-    } else if (this.props.type == 'Script') {
-      prompts.push({
-        type: 'checkbox',
-        name: 'provides',
-        message: 'Your addon will provide the following media types.',
-        choices: ['audio', 'image', 'executable', 'video']
-      }, {
-        type: 'input',
-        name: 'scriptid',
-        message: 'Your addon id, it should be in the format script.name and not contain spaces. (for e.g. script.test.hello)',
-        validate: helper.validateScriptName
-      });
-    } else if (this.props.type == 'Subtitle') {
-      prompts.push({
-        type: 'input',
-        name: 'scriptid',
-        message: 'Your addon id, it should be in the format service.subtitles.name and not contain spaces. (for e.g. service.subtitles.hello)',
-        validate: helper.validateSubtitleName
       });
     }
 
+    var scriptidMessage
+    var validationHelper
+    if (this.props.type == 'Contextmenu') {
+      scriptidMessage = 'Your addon id, it should be in the format context.name.name and not contain spaces. (for e.g. context.hello.menu)';
+      validationHelper = helper.validateContextmenuName;
+    } else if (this.props.type == 'Module') {
+      scriptidMessage = 'Your addon id, it should be in the format script.module.name and not contain spaces. (for e.g. script.module.hello)';
+      validationHelper = helper.validateModuleName;
+    } else if (this.props.type == 'Plugin') {
+      scriptidMessage = 'Your addon id, it should be in the format plugin.name and not contain spaces. (for e.g. plugin.test.hello)';
+      validationHelper = helper.validatePluginName;
+    } else if (this.props.type == 'Resource') {
+      scriptidMessage = 'Your addon id, it should be in the format resource.resourcetype.name and not contain spaces. (for e.g. resource.images.hello)';
+      validationHelper = helper.validateResourceName;
+    } else if (this.props.type == 'Service') {
+      scriptidMessage = 'Your addon id, it should be in the format service.name and not contain spaces. (for e.g. service.test.hello)';
+      validationHelper = helper.validateServiceName;
+    } else if (this.props.type == 'Script') {
+      scriptidMessage = 'Your addon id, it should be in the format script.name and not contain spaces. (for e.g. script.test.hello)';
+      validationHelper = helper.validateScriptName;
+    } else if (this.props.type == 'Subtitle') {
+      scriptidMessage = 'Your addon id, it should be in the format service.subtitles.name and not contain spaces. (for e.g. service.subtitles.hello)';
+      validationHelper = helper.validateSubtitleName;
+    }
+
     prompts.push({
+      type: 'input',
+      name: 'scriptid',
+      message: scriptidMessage,
+      validate: validationHelper
+    }, {
       type: 'input',
       name: 'scriptname',
       message: 'Your addon name, it should be easily readable. (for e.g. Hello World)',
