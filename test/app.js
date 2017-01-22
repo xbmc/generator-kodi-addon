@@ -40,6 +40,8 @@ describe('generate contextmenu', function () {
       'tests/README.md',
       'resources/__init__.py',
       'resources/lib/__init__.py',
+      'resources/lib/utilities.py',
+      'resources/lib/kodiLogging.py',
       'resources/lib/README.md',
       'resources/settings.xml'
     ]);
@@ -90,6 +92,8 @@ describe('generate module', function () {
       'resources/language/resource.language.en_gb/strings.po',
       'resources/language/README.md',
       'resources/lib/__init__.py',
+      'resources/lib/utilities.py',
+      'resources/lib/kodiLogging.py',
       'resources/lib/README.md',
       'resources/settings.xml'
     ]);
@@ -135,6 +139,8 @@ describe('generate plugin', function () {
       'resources/language/resource.language.en_gb/strings.po',
       'resources/language/README.md',
       'resources/lib/__init__.py',
+      'resources/lib/utilities.py',
+      'resources/lib/kodiLogging.py',
       'resources/lib/README.md',
       'resources/settings.xml',
       'LICENSE'
@@ -153,6 +159,8 @@ describe('generate plugin', function () {
     assert.fileContent('addon.xml', '<import addon="xbmc.python" version="2.25.0"/>');
     assert.fileContent('addon.xml', '<provides>video</provides>');
     assert.fileContent('addon.xml', '<import addon="script.module.routing" version="');
+    assert.noFileContent('addon.xml', '<import addon="script.module.simplejson" version="');
+    assert.noFileContent('resources/lib/utilities.py', 'import simplejson as json');
   });
 });
 
@@ -194,6 +202,8 @@ describe('generate resource', function () {
       'resources/language/resource.language.en_gb/strings.po',
       'resources/language/README.md',
       'resources/lib/__init__.py',
+      'resources/lib/utilities.py',
+      'resources/lib/kodiLogging.py',
       'resources/lib/README.md',
       'resources/settings.xml'
     ]);
@@ -239,6 +249,8 @@ describe('generate script', function () {
       'resources/language/resource.language.en_gb/strings.po',
       'resources/language/README.md',
       'resources/lib/__init__.py',
+      'resources/lib/utilities.py',
+      'resources/lib/kodiLogging.py',
       'resources/lib/README.md',
       'resources/settings.xml',
       'LICENSE'
@@ -257,6 +269,8 @@ describe('generate script', function () {
     assert.fileContent('addon.xml', '<platform>all</platform>');
     assert.fileContent('addon.xml', '<import addon="xbmc.python" version="2.25.0"/>');
     assert.fileContent('addon.xml', '<provides>executable</provides>');
+    assert.noFileContent('addon.xml', '<import addon="script.module.simplejson" version="');
+    assert.noFileContent('resources/lib/utilities.py', 'import simplejson as json');
   });
 });
 
@@ -292,6 +306,8 @@ describe('generate service', function () {
       'resources/language/resource.language.en_gb/strings.po',
       'resources/language/README.md',
       'resources/lib/__init__.py',
+      'resources/lib/utilities.py',
+      'resources/lib/kodiLogging.py',
       'resources/lib/README.md',
       'resources/settings.xml',
       'LICENSE'
@@ -310,6 +326,34 @@ describe('generate service', function () {
     assert.fileContent('addon.xml', ' provider-name="Me">');
     assert.fileContent('addon.xml', '<platform>all</platform>');
     assert.fileContent('addon.xml', '<import addon="xbmc.python" version="2.25.0"/>');
+    assert.noFileContent('addon.xml', '<import addon="script.module.simplejson" version="');
+    assert.noFileContent('resources/lib/utilities.py', 'import simplejson as json');
+  });
+});
+
+describe('check simplejson for jarvis', function () {
+  before(function () {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        type: 'Service',
+        scriptid: 'service.test',
+        start: 'login',
+        scriptname: 'My service name',
+        kodiVersion: '2.24.0',
+        platforms: 'all',
+        license: 'MIT',
+        authors: 'Me',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
+  });
+
+  it('check service addon.xml content', function () {
+    assert.fileContent('addon.xml', '<import addon="script.module.simplejson" version="');
+    assert.fileContent('resources/lib/utilities.py', 'import simplejson as json');
   });
 });
 

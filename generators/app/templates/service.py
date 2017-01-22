@@ -1,7 +1,15 @@
 # -*- coding: utf-8 -*-
 
+from resources.lib import utilities
+from resources.lib import kodiLogging
+import logging
 import time
 import xbmc
+
+
+ADDON = xbmcaddon.Addon()
+logger = logging.getLogger(ADDON.getAddonInfo('id'))
+kodiLogging.config()
 
 if __name__ == '__main__':
     monitor = xbmc.Monitor()
@@ -11,4 +19,4 @@ if __name__ == '__main__':
         if monitor.waitForAbort(10):
             # Abort was requested while waiting. We should exit
             break
-        xbmc.log("hello addon! %s" % time.time(), level=xbmc.LOGDEBUG)
+        logger.debug("hello addon! %s" % time.time())

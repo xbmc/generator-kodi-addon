@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="<%= props.scriptid %>" name="<%= props.scriptname %>" version="0.0.1" provider-name="<%= props.authors %>">
     <requires>
-        <import addon="xbmc.python" version="<%= props.kodiVersion %>"/><% if (props.type == 'Plugin') { -%><import addon="script.module.routing" version="0.2.0"/><% } -%>
+        <import addon="xbmc.python" version="<%= props.kodiVersion %>"/>
+<%_ if (props.type == 'Plugin') { -%>        <import addon="script.module.routing" version="0.2.0"/><% } %>
+<%_ if (props.kodiVersion == '2.24.0' && (props.type == 'Plugin' || props.type == 'Script' || props.type == 'Service')) { -%>        <import addon="script.module.simplejson" version="3.3.0"/><% } %>
     </requires>
     <% if (props.type == 'Contextmenu') { -%><extension point="kodi.context.item" library="context.py">
     <item>
