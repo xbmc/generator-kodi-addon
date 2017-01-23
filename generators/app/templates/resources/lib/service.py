@@ -5,13 +5,14 @@ from resources.lib import kodiLogging
 import logging
 import time
 import xbmc
+import xbmcaddon
 
 
 ADDON = xbmcaddon.Addon()
 logger = logging.getLogger(ADDON.getAddonInfo('id'))
-kodiLogging.config()
 
-if __name__ == '__main__':
+
+def run():
     monitor = xbmc.Monitor()
 
     while not monitor.abortRequested():

@@ -33,7 +33,7 @@ def normalize_string(str):
         'NFKD', unicode(unicode(str, 'utf-8'))
     ).encode('ascii', 'ignore')
 
-# Gather all the information available from the playing item, 
+# Gather all the information available from the playing item,
 # helps to determine what subtitle to list
 def get_info():
     item = {}
@@ -142,18 +142,19 @@ def download(params):
     xbmcplugin.addDirectoryItem(
         handle=HANDLE, url=file, listitem=xbmcgui.ListItem(label=file), isFolder=False)
 
-# Gather the request info
-params = get_params()
+def run():
+    # Gather the request info
+    params = get_params()
 
-if 'action' in params:
-    if params['action'] == "search":
-        # If the action is 'search' use item information kodi provides to search for subtitles 
-        search(get_info(), get_languages(params))
-    elif params['action'] == "manualsearch":
-        # If the action is 'manualsearch' use user manually inserted string to search for subtitles 
-        manual_search(params['searchstring'], get_languages(params))
-    elif params['action'] == "download":
-        # If the action is 'download' use the info provided to download the subtitle and give the file path to kodi
-        download(params)
+    if 'action' in params:
+        if params['action'] == "search":
+            # If the action is 'search' use item information kodi provides to search for subtitles
+            search(get_info(), get_languages(params))
+        elif params['action'] == "manualsearch":
+            # If the action is 'manualsearch' use user manually inserted string to search for subtitles
+            manual_search(params['searchstring'], get_languages(params))
+        elif params['action'] == "download":
+            # If the action is 'download' use the info provided to download the subtitle and give the file path to kodi
+            download(params)
 
-xbmcplugin.endOfDirectory(HANDLE)
+    xbmcplugin.endOfDirectory(HANDLE)
