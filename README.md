@@ -15,7 +15,7 @@ npm install -g generator-kodi-addon
 Then generate your new project:
 
 ```bash
-yo kodi
+yo kodi-addon
 ```
 
 ## Development
