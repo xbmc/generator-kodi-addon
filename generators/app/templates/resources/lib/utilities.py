@@ -5,7 +5,6 @@ import xbmcaddon
 import re
 import sys
 import logging
-
 <%_ if (props.kodiVersion == '2.24.0') { -%>
 if sys.version_info >= (2, 7):
     import json as json
@@ -20,37 +19,46 @@ ADDON = xbmcaddon.Addon()
 
 logger = logging.getLogger(__name__)
 
+
 def notification(header, message, time=5000, icon=ADDON.getAddonInfo('icon'), sound=True):
     xbmcgui.Dialog().notification(header, message, icon, time, sound)
 
-def showSettings():
+
+def show_settings():
     ADDON.openSettings()
 
-def getSetting(setting):
+
+def get_setting(setting):
     return ADDON.getSetting(setting).strip().decode('utf-8')
 
-def setSetting(setting, value):
+
+def set_setting(setting, value):
     ADDON.setSetting(setting, str(value))
 
-def getSettingAsBool(setting):
-    return getSetting(setting).lower() == "true"
 
-def getSettingAsFloat(setting):
+def get_setting_as_bool(setting):
+    return get_setting(setting).lower() == "true"
+
+
+def get_setting_as_float(setting):
     try:
-        return float(getSetting(setting))
+        return float(get_setting(setting))
     except ValueError:
         return 0
 
-def getSettingAsInt(setting):
+
+def get_setting_as_int(setting):
     try:
-        return int(getSettingAsFloat(setting))
+        return int(get_setting_as_float(setting))
     except ValueError:
         return 0
 
-def getString(string_id):
+
+def get_string(string_id):
     return ADDON.getLocalizedString(string_id).encode('utf-8', 'ignore')
 
-def kodiJsonRequest(params):
+
+def kodi_json_request(params):
     data = json.dumps(params)
     request = xbmc.executeJSONRPC(data)
 
@@ -64,5 +72,6 @@ def kodiJsonRequest(params):
             return response['result']
         return None
     except KeyError:
-        logger.warn("[%s] %s" % (params['method'], response['error']['message']))
+        logger.warn("[%s] %s" %
+                    (params['method'], response['error']['message']))
         return None

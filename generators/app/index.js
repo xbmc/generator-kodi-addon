@@ -168,30 +168,39 @@ module.exports = yeoman.extend({
       this.destinationPath('README.md')
     );
 
+    if (this.props.type != 'Module' && this.props.type != 'Resource') {
+      this.fs.copyTpl(
+      this.templatePath('main.py'),
+      this.destinationPath('main.py'), {
+        props: this.props
+      }
+    );
+    }
+
     if (this.props.type == 'Contextmenu') {
       this.fs.copy(
-        this.templatePath('context.py'),
-        this.destinationPath('context.py')
+        this.templatePath('resources/lib/context.py'),
+        this.destinationPath('resources/lib/context.py')
       );
     } else if (this.props.type == 'Plugin') {
       this.fs.copy(
-        this.templatePath('plugin.py'),
-        this.destinationPath('plugin.py')
+        this.templatePath('resources/lib/plugin.py'),
+        this.destinationPath('resources/lib/plugin.py')
       );
     } else if (this.props.type == 'Script') {
       this.fs.copy(
-        this.templatePath('script.py'),
-        this.destinationPath('script.py')
+        this.templatePath('resources/lib/script.py'),
+        this.destinationPath('resources/lib/script.py')
       );
     } else if (this.props.type == 'Service') {
       this.fs.copy(
-        this.templatePath('service.py'),
-        this.destinationPath('service.py')
+        this.templatePath('resources/lib/service.py'),
+        this.destinationPath('resources/lib/service.py')
       );
     } else if (this.props.type == 'Subtitle') {
       this.fs.copy(
-        this.templatePath('subtitle.py'),
-        this.destinationPath('subtitle.py')
+        this.templatePath('resources/lib/subtitle.py'),
+        this.destinationPath('resources/lib/subtitle.py')
       );
     }
 
@@ -210,8 +219,38 @@ module.exports = yeoman.extend({
       );
       } else {
         this.fs.copyTpl(
-        this.templatePath('resources/**'),
+        this.templatePath('resources/*'),
         this.destinationPath('resources/'), {
+          props: this.props
+        }
+      );
+        this.fs.copyTpl(
+        this.templatePath('resources/language/**'),
+        this.destinationPath('resources/language/'), {
+          props: this.props
+        }
+      );
+        this.fs.copyTpl(
+        this.templatePath('resources/lib/__init__.py'),
+        this.destinationPath('resources/lib/__init__.py'), {
+          props: this.props
+        }
+      );
+        this.fs.copyTpl(
+        this.templatePath('resources/lib/utilities.py'),
+        this.destinationPath('resources/lib/utilities.py'), {
+          props: this.props
+        }
+      );
+        this.fs.copyTpl(
+        this.templatePath('resources/lib/kodiLogging.py'),
+        this.destinationPath('resources/lib/kodiLogging.py'), {
+          props: this.props
+        }
+      );
+        this.fs.copyTpl(
+        this.templatePath('resources/lib/README.md'),
+        this.destinationPath('resources/lib/README.md'), {
           props: this.props
         }
       );

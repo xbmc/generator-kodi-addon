@@ -5,17 +5,17 @@
 <%_ if (props.type == 'Plugin') { -%>        <import addon="script.module.routing" version="0.2.0"/><% } %>
 <%_ if (props.kodiVersion == '2.24.0' && (props.type == 'Plugin' || props.type == 'Script' || props.type == 'Service')) { -%>        <import addon="script.module.simplejson" version="3.3.0"/><% } %>
     </requires>
-    <% if (props.type == 'Contextmenu') { -%><extension point="kodi.context.item" library="context.py">
+    <% if (props.type == 'Contextmenu') { -%><extension point="kodi.context.item" library="main.py">
     <item>
         <!-- This label can be changed in your strings.po -->
         <label>32000</label>
         <visible>True</visible>
     </item>
-    </extension><% } -%><% if (props.type == 'Module') {%><extension point="xbmc.python.module" library="lib"/><% } %><% if (props.type == 'Plugin') {%><extension point="xbmc.python.pluginsource" library="plugin.py">
+    </extension><% } -%><% if (props.type == 'Module') {%><extension point="xbmc.python.module" library="lib"/><% } %><% if (props.type == 'Plugin') {%><extension point="xbmc.python.pluginsource" library="main.py">
         <provides><%= provides %></provides>
-    </extension><% } %><% if (props.type == 'Resource') {%><extension point="kodi.resource.images" compile="false" type="skinbackgrounds"/><% } %><% if (props.type == 'Script') {%><extension point="xbmc.python.script" library="script.py">
+    </extension><% } %><% if (props.type == 'Resource') {%><extension point="kodi.resource.images" compile="false" type="skinbackgrounds"/><% } %><% if (props.type == 'Script') {%><extension point="xbmc.python.script" library="main.py">
         <provides><%= provides %></provides>
-    </extension><% } %><% if (props.type == 'Service') {%><extension point="xbmc.service" library="service.py" start="<%= props.start %>"/><% } %><% if (props.type == 'Subtitle') {%><extension point="xbmc.subtitle.module" library="subtitle.py" /><% } %>
+    </extension><% } %><% if (props.type == 'Service') {%><extension point="xbmc.service" library="main.py" start="<%= props.start %>"/><% } %><% if (props.type == 'Subtitle') {%><extension point="xbmc.subtitle.module" library="main.py" /><% } %>
     <extension point="xbmc.addon.metadata">
         <summary lang="en_GB"><%= props.summary %></summary>
         <description lang="en_GB"></description>

@@ -9,12 +9,13 @@ import xbmcgui
 
 ADDON = xbmcaddon.Addon()
 logger = logging.getLogger(ADDON.getAddonInfo('id'))
-kodiLogging.config()
+
 
 # Put your code here, this is just an example showing
 # a textbox as soon as this addon gets called
-addonname = ADDON.getAddonInfo('name')
+def show_dialog():
+    addon_name = ADDON.getAddonInfo('name')
 
-line1 = "Hello World!"
+    line1 = "Hello World!"
 
-xbmcgui.Dialog().ok(addonname, line1)
+    xbmcgui.Dialog().ok(addon_name, line1)
