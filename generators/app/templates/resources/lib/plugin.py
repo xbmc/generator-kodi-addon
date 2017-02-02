@@ -4,14 +4,14 @@ import routing
 import logging
 import xbmcaddon
 from resources.lib import kodiutils
-from resources.lib import kodiLogging
+from resources.lib import kodilogging
 from xbmcgui import ListItem
 from xbmcplugin import addDirectoryItem, endOfDirectory
 
 
 ADDON = xbmcaddon.Addon()
 logger = logging.getLogger(ADDON.getAddonInfo('id'))
-kodiLogging.config()
+kodilogging.config()
 plugin = routing.Plugin()
 
 

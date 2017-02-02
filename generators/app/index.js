@@ -243,8 +243,8 @@ module.exports = yeoman.extend({
         }
       );
         this.fs.copyTpl(
-        this.templatePath('resources/lib/kodiLogging.py'),
-        this.destinationPath('resources/lib/kodiLogging.py'), {
+        this.templatePath('resources/lib/kodilogging.py'),
+        this.destinationPath('resources/lib/kodilogging.py'), {
           props: this.props
         }
       );

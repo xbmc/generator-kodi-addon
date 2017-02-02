@@ -43,7 +43,7 @@ describe('generate contextmenu', function () {
       'resources/__init__.py',
       'resources/lib/__init__.py',
       'resources/lib/kodiutils.py',
-      'resources/lib/kodiLogging.py',
+      'resources/lib/kodilogging.py',
       'resources/lib/README.md',
       'resources/settings.xml'
     ]);
@@ -109,7 +109,7 @@ describe('generate module', function () {
       'resources/language/README.md',
       'resources/lib/__init__.py',
       'resources/lib/kodiutils.py',
-      'resources/lib/kodiLogging.py',
+      'resources/lib/kodilogging.py',
       'resources/lib/README.md',
       'resources/settings.xml'
     ]);
@@ -157,7 +157,7 @@ describe('generate plugin', function () {
       'resources/language/README.md',
       'resources/lib/__init__.py',
       'resources/lib/kodiutils.py',
-      'resources/lib/kodiLogging.py',
+      'resources/lib/kodilogging.py',
       'resources/lib/README.md',
       'resources/settings.xml',
       'LICENSE'
@@ -235,7 +235,7 @@ describe('generate resource', function () {
       'resources/language/README.md',
       'resources/lib/__init__.py',
       'resources/lib/kodiutils.py',
-      'resources/lib/kodiLogging.py',
+      'resources/lib/kodilogging.py',
       'resources/lib/README.md',
       'resources/settings.xml'
     ]);
@@ -283,7 +283,7 @@ describe('generate script', function () {
       'resources/language/README.md',
       'resources/lib/__init__.py',
       'resources/lib/kodiutils.py',
-      'resources/lib/kodiLogging.py',
+      'resources/lib/kodilogging.py',
       'resources/lib/README.md',
       'resources/settings.xml',
       'LICENSE'
@@ -354,7 +354,7 @@ describe('generate service', function () {
       'resources/language/README.md',
       'resources/lib/__init__.py',
       'resources/lib/kodiutils.py',
-      'resources/lib/kodiLogging.py',
+      'resources/lib/kodilogging.py',
       'resources/lib/README.md',
       'resources/settings.xml',
       'LICENSE'

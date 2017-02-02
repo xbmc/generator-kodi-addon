@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from resources.lib import kodiutils
-from resources.lib import kodiLogging
+from resources.lib import kodilogging
 import logging
 import xbmcaddon
 import xbmcgui

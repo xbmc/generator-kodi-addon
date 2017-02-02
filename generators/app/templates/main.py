@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from resources.lib import kodiLogging
+from resources.lib import kodilogging
 <%_ if (props.type == 'Contextmenu') { -%>
 from resources.lib import context
 <%_ } else if (props.type == 'Plugin') { -%>
@@ -18,7 +18,7 @@ import xbmcaddon
 # Keep this file to a minimum, as Kodi
 # doesn't keep a compiled copy of this
 ADDON = xbmcaddon.Addon()
-kodiLogging.config()
+kodilogging.config()
 
 <%_ if (props.type == 'Contextmenu') { -%>
 context.run()
