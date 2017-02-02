@@ -237,8 +237,8 @@ module.exports = yeoman.extend({
         }
       );
         this.fs.copyTpl(
-        this.templatePath('resources/lib/utilities.py'),
-        this.destinationPath('resources/lib/utilities.py'), {
+        this.templatePath('resources/lib/kodiutils.py'),
+        this.destinationPath('resources/lib/kodiutils.py'), {
           props: this.props
         }
       );

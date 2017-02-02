@@ -3,7 +3,7 @@
 import routing
 import logging
 import xbmcaddon
-from resources.lib import utilities
+from resources.lib import kodiutils
 from resources.lib import kodiLogging
 from xbmcgui import ListItem
 from xbmcplugin import addDirectoryItem, endOfDirectory
