@@ -122,7 +122,13 @@ module.exports = yeoman.extend({
     }, {
       type: 'input',
       name: 'email',
-      message: 'Your email address? (for e.g. john.doe@gmail.com)'
+      message: 'Your email address? (for e.g. john.doe@gmail.com)',
+      validate: function (email) {
+          if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+            return 'You must enter a valid email address';
+          } 
+          return true;
+        }
     }, {
       type: 'input',
       name: 'website',
