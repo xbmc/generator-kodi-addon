@@ -66,3 +66,28 @@ describe('prompting validations → validateScriptNameLength()', () => {
     assert.equal(helper.validateScriptNameLength('my'), false);
   });
 });
+describe('prompting validations → validateProvides()', () => {
+  it('should work when selecting more then one item', () => {
+    assert.equal(helper.validateProvides(['video', 'audio']), true);
+  });
+  it('should work when selecting only one item', () => {
+    assert.equal(helper.validateProvides(['video']), true);
+  });
+  it('should fail when nothing is selected', () => {
+    assert.equal(helper.validateProvides([]), 'You need check at least one.');
+  });
+});
+describe('prompting validations → validatePlatforms()', () => {
+  it('should work when selecting more then one item', () => {
+    assert.equal(helper.validatePlatforms(['osx', 'android']), true);
+  });
+  it('should work when selecting only one item', () => {
+    assert.equal(helper.validatePlatforms(['all']), true);
+  });
+  it('should fail when all and something else is selected', () => {
+    assert.equal(helper.validatePlatforms(['all', 'osx']), '"All" must be the only platform selected.');
+  });
+  it('should fail when nothing is selected', () => {
+    assert.equal(helper.validatePlatforms([]), 'You need check at least one.');
+  });
+});
