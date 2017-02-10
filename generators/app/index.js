@@ -39,10 +39,11 @@ module.exports = yeoman.extend({
 
     if (this.props.type == 'Plugin' || this.props.type == 'Script') {
       prompts.push({
-        type: 'checkbox',
+        type: 'list',
         name: 'provides',
         message: 'Your addon will provide the following media types.',
-        choices: ['audio', 'image', 'executable', 'game', 'video']
+        choices: ['audio', 'image', 'executable', 'game', 'video'],
+        default: 4
       });
     }
 
@@ -97,10 +98,11 @@ module.exports = yeoman.extend({
       choices: kodiVersion,
       default: 0
     }, {
-      type: 'checkbox',
+      type: 'list',
       name: 'platforms',
       message: 'Which platforms does this run with?',
-      choices: ['all', 'android', 'linux', 'osx', 'windx']
+      choices: ['all', 'android', 'linux', 'osx', 'windx'],
+      default: 0
     }, {
       type: 'list',
       name: 'license',
@@ -156,7 +158,7 @@ module.exports = yeoman.extend({
       }
     );
     this.fs.copy(
-      this.templatePath('gitignore'),
+      this.templatePath('.gitignore'),
       this.destinationPath('.gitignore')
     );
     this.fs.copy(
