@@ -23,7 +23,7 @@ yo kodi-addon
  - Check out this project via git
  - Browse to the folder via commandline
  - Do `npm link`
- - Now you can use `yo kodi`, which should include your changes.
+ - Now you can use `yo kodi-addon`, which should include your changes.
 
 ## License
 
