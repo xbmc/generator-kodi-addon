@@ -42,7 +42,8 @@ module.exports = yeoman.extend({
         type: 'checkbox',
         name: 'provides',
         message: 'Your addon will provide the following media types.',
-        choices: ['audio', 'image', 'executable', 'game', 'video']
+        choices: ['audio', 'image', 'executable', 'game', 'video'],
+        validate: helper.validateProvides
       });
     }
 
@@ -100,7 +101,8 @@ module.exports = yeoman.extend({
       type: 'checkbox',
       name: 'platforms',
       message: 'Which platforms does this run with?',
-      choices: ['all', 'android', 'linux', 'osx', 'windx']
+      choices: ['all', 'android', 'linux', 'osx', 'windx'],
+      validate: helper.validatePlatforms
     }, {
       type: 'list',
       name: 'license',
