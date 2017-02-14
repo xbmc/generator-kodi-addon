@@ -25,11 +25,11 @@
     "generator-license": "^5.1.0",
     "mkdirp": "^0.5.1",
     "yeoman-generator": "^1.1.0",
-    "yosay": "^1.2.1"
+    "yosay": "^2.0.0"
   },
   "devDependencies": {
     "yeoman-test": "^1.6.0",
-    "yeoman-assert": "^2.2.2",
+    "yeoman-assert": "^3.0.0",
     "eslint": "^3.15.0",
     "eslint-config-xo-space": "^0.15.0",
     "gulp": "^3.9.1",
