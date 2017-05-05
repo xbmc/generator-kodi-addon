@@ -101,7 +101,7 @@ module.exports = yeoman.extend({
       type: 'checkbox',
       name: 'platforms',
       message: 'Which platforms does this run with?',
-      choices: ['all', 'android', 'linux', 'osx', 'windx'],
+      choices: ['all', 'android', 'linux', 'ios', 'osx', 'windx'],
       validate: helper.validatePlatforms
     }, {
       type: 'list',
