@@ -202,7 +202,7 @@ describe('generate resource', function () {
               scriptid: 'resource.test',
               scriptname: 'My resource name',
               kodiVersion: '2.25.0',
-              platforms: 'all',
+              platforms: 'ios',
               license: 'MIT',
               authors: 'Me',
               summary: 'My summary',
@@ -244,7 +244,7 @@ describe('generate resource', function () {
     assert.fileContent('addon.xml', '<addon id="resource.test" ');
     assert.fileContent('addon.xml', '<extension point="kodi.resource.images" compile="false" type="skinbackgrounds"/>');
     assert.fileContent('addon.xml', ' provider-name="Me">');
-    assert.fileContent('addon.xml', '<platform>all</platform>');
+    assert.fileContent('addon.xml', '<platform>ios</platform>');
     assert.fileContent('addon.xml', '<import addon="xbmc.python" version="2.25.0"/>');
   });
 });
