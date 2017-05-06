@@ -26,6 +26,7 @@ describe('generate contextmenu', function () {
     assert.file([
       'addon.xml',
       '.gitignore',
+      '.travis.yml',
       'changelog.txt',
       'main.py',
       'README.md',
@@ -92,6 +93,7 @@ describe('generate module', function () {
     assert.file([
       'addon.xml',
       '.gitignore',
+      '.travis.yml',
       'changelog.txt',
       'README.md',
       'LICENSE'
@@ -147,6 +149,7 @@ describe('generate plugin', function () {
     assert.file([
       'addon.xml',
       '.gitignore',
+      '.travis.yml',
       'changelog.txt',
       'main.py',
       'README.md',
@@ -217,6 +220,7 @@ describe('generate resource', function () {
     assert.file([
       'addon.xml',
       '.gitignore',
+      '.travis.yml',
       'changelog.txt',
       'README.md',
       'LICENSE'
@@ -273,6 +277,7 @@ describe('generate script', function () {
     assert.file([
       'addon.xml',
       '.gitignore',
+      '.travis.yml',
       'changelog.txt',
       'main.py',
       'README.md',
@@ -344,6 +349,7 @@ describe('generate service', function () {
     assert.file([
       'addon.xml',
       '.gitignore',
+      '.travis.yml',
       'changelog.txt',
       'main.py',
       'README.md',
@@ -440,6 +446,7 @@ describe('generate subtitle', function () {
     assert.file([
       'addon.xml',
       '.gitignore',
+      '.travis.yml',
       'changelog.txt',
       'main.py',
       'README.md',
