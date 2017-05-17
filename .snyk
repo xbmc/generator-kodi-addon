@@ -1,0 +1,46 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:ms:20170412':
+    - yeoman-generator > debug > ms:
+        reason: None given
+        expires: '2017-06-16T09:22:58.687Z'
+    - generator-git-init > yeoman-generator > debug > ms:
+        reason: None given
+        expires: '2017-06-16T09:22:58.687Z'
+    - generator-license > yeoman-generator > debug > ms:
+        reason: None given
+        expires: '2017-06-16T09:22:58.687Z'
+    - generator-git-init > yeoman-generator > yeoman-test > yeoman-generator > debug > ms:
+        reason: None given
+        expires: '2017-06-16T09:22:58.687Z'
+    - yeoman-generator > yeoman-environment > debug > ms:
+        reason: None given
+        expires: '2017-06-16T09:22:58.688Z'
+    - generator-git-init > yeoman-generator > yeoman-environment > debug > ms:
+        reason: None given
+        expires: '2017-06-16T09:22:58.688Z'
+    - generator-license > yeoman-generator > yeoman-environment > debug > ms:
+        reason: None given
+        expires: '2017-06-16T09:22:58.688Z'
+    - generator-git-init > yeoman-generator > yeoman-test > yeoman-generator > yeoman-environment > debug > ms:
+        reason: None given
+        expires: '2017-06-16T09:22:58.688Z'
+    - generator-git-init > yeoman-generator > yeoman-test > yeoman-environment > debug > ms:
+        reason: None given
+        expires: '2017-06-16T09:22:58.689Z'
+  'npm:shelljs:20140723':
+    - yeoman-generator > shelljs:
+        reason: None given
+        expires: '2017-06-16T09:22:58.689Z'
+    - generator-license > yeoman-generator > shelljs:
+        reason: None given
+        expires: '2017-06-16T09:22:58.689Z'
+    - generator-git-init > yeoman-generator > yeoman-test > yeoman-generator > shelljs:
+        reason: None given
+        expires: '2017-06-16T09:22:58.689Z'
+    - generator-git-init > yeoman-generator > shelljs:
+        reason: None given
+        expires: '2017-06-16T09:22:58.689Z'
+patch: {}
