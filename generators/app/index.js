@@ -176,11 +176,11 @@ module.exports = yeoman.extend({
 
     if (this.props.type != 'Module' && this.props.type != 'Resource') {
       this.fs.copyTpl(
-      this.templatePath('main.py'),
-      this.destinationPath('main.py'), {
-        props: this.props
-      }
-    );
+        this.templatePath('main.py'),
+        this.destinationPath('main.py'), {
+          props: this.props
+        }
+      );
     }
 
     if (this.props.type == 'Contextmenu') {
@@ -220,46 +220,46 @@ module.exports = yeoman.extend({
     if (this.props.type != 'Module' && this.props.type != 'Resource') {
       if (this.props.type == 'Contextmenu') {
         this.fs.copy(
-        this.templatePath('resources/language/**'),
-        this.destinationPath('resources/language/')
-      );
+          this.templatePath('resources/language/**'),
+          this.destinationPath('resources/language/')
+        );
       } else {
         this.fs.copyTpl(
-        this.templatePath('resources/*'),
-        this.destinationPath('resources/'), {
-          props: this.props
-        }
-      );
+          this.templatePath('resources/*'),
+          this.destinationPath('resources/'), {
+            props: this.props
+          }
+        );
         this.fs.copyTpl(
-        this.templatePath('resources/language/**'),
-        this.destinationPath('resources/language/'), {
-          props: this.props
-        }
-      );
+          this.templatePath('resources/language/**'),
+          this.destinationPath('resources/language/'), {
+            props: this.props
+          }
+        );
         this.fs.copyTpl(
-        this.templatePath('resources/lib/__init__.py'),
-        this.destinationPath('resources/lib/__init__.py'), {
-          props: this.props
-        }
-      );
+          this.templatePath('resources/lib/__init__.py'),
+          this.destinationPath('resources/lib/__init__.py'), {
+            props: this.props
+          }
+        );
         this.fs.copyTpl(
-        this.templatePath('resources/lib/kodiutils.py'),
-        this.destinationPath('resources/lib/kodiutils.py'), {
-          props: this.props
-        }
-      );
+          this.templatePath('resources/lib/kodiutils.py'),
+          this.destinationPath('resources/lib/kodiutils.py'), {
+            props: this.props
+          }
+        );
         this.fs.copyTpl(
-        this.templatePath('resources/lib/kodilogging.py'),
-        this.destinationPath('resources/lib/kodilogging.py'), {
-          props: this.props
-        }
-      );
+          this.templatePath('resources/lib/kodilogging.py'),
+          this.destinationPath('resources/lib/kodilogging.py'), {
+            props: this.props
+          }
+        );
         this.fs.copyTpl(
-        this.templatePath('resources/lib/README.md'),
-        this.destinationPath('resources/lib/README.md'), {
-          props: this.props
-        }
-      );
+          this.templatePath('resources/lib/README.md'),
+          this.destinationPath('resources/lib/README.md'), {
+            props: this.props
+          }
+        );
       }
     }
 

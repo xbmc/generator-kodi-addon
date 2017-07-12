@@ -6,20 +6,20 @@ var helpers = require('yeoman-test');
 describe('generate contextmenu', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({
-              type: 'Contextmenu',
-              scriptid: 'contextmenu.test',
-              scriptname: 'My contextmenu name',
-              kodiVersion: '2.25.0',
-              platforms: 'all',
-              license: 'MIT',
-              authors: 'Me',
-              summary: 'My summary',
-              authorName: 'My real name',
-              email: 'test@test.de',
-              website: 'www.kodi.tv'
-            })
-            .toPromise();
+      .withPrompts({
+        type: 'Contextmenu',
+        scriptid: 'contextmenu.test',
+        scriptname: 'My contextmenu name',
+        kodiVersion: '2.25.0',
+        platforms: 'all',
+        license: 'MIT',
+        authors: 'Me',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
   });
 
   it('creates contextmenu files', function () {
@@ -73,20 +73,20 @@ describe('generate contextmenu', function () {
 describe('generate module', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({
-              type: 'Module',
-              scriptid: 'script.module.test',
-              scriptname: 'My module name',
-              kodiVersion: '2.24.0',
-              platforms: 'android',
-              license: 'MIT',
-              authors: 'Me, Him',
-              summary: 'My summary',
-              authorName: 'My real name',
-              email: 'test@test.de',
-              website: 'www.kodi.tv'
-            })
-            .toPromise();
+      .withPrompts({
+        type: 'Module',
+        scriptid: 'script.module.test',
+        scriptname: 'My module name',
+        kodiVersion: '2.24.0',
+        platforms: 'android',
+        license: 'MIT',
+        authors: 'Me, Him',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
   });
 
   it('creates module files', function () {
@@ -128,21 +128,21 @@ describe('generate module', function () {
 describe('generate plugin', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({
-              type: 'Plugin',
-              scriptid: 'plugin.test',
-              provides: 'video',
-              scriptname: 'My plugin name',
-              kodiVersion: '2.25.0',
-              platforms: 'osx,windx',
-              license: 'MIT',
-              authors: 'Me',
-              summary: 'My summary',
-              authorName: 'My real name',
-              email: 'test@test.de',
-              website: 'www.kodi.tv'
-            })
-            .toPromise();
+      .withPrompts({
+        type: 'Plugin',
+        scriptid: 'plugin.test',
+        provides: 'video',
+        scriptname: 'My plugin name',
+        kodiVersion: '2.25.0',
+        platforms: 'osx,windx',
+        license: 'MIT',
+        authors: 'Me',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
   });
 
   it('creates plugin files', function () {
@@ -200,20 +200,20 @@ describe('generate plugin', function () {
 describe('generate resource', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({
-              type: 'Resource',
-              scriptid: 'resource.test',
-              scriptname: 'My resource name',
-              kodiVersion: '2.25.0',
-              platforms: 'ios',
-              license: 'MIT',
-              authors: 'Me',
-              summary: 'My summary',
-              authorName: 'My real name',
-              email: 'test@test.de',
-              website: 'www.kodi.tv'
-            })
-            .toPromise();
+      .withPrompts({
+        type: 'Resource',
+        scriptid: 'resource.test',
+        scriptname: 'My resource name',
+        kodiVersion: '2.25.0',
+        platforms: 'ios',
+        license: 'MIT',
+        authors: 'Me',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
   });
 
   it('creates resource files', function () {
@@ -256,21 +256,21 @@ describe('generate resource', function () {
 describe('generate script', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({
-              type: 'Script',
-              scriptid: 'script.test',
-              provides: 'executable',
-              scriptname: 'My script name',
-              kodiVersion: '2.25.0',
-              platforms: 'all',
-              license: 'MIT',
-              authors: 'Me, him',
-              summary: 'My summary',
-              authorName: 'My real name',
-              email: 'test@test.de',
-              website: 'www.kodi.tv'
-            })
-            .toPromise();
+      .withPrompts({
+        type: 'Script',
+        scriptid: 'script.test',
+        provides: 'executable',
+        scriptname: 'My script name',
+        kodiVersion: '2.25.0',
+        platforms: 'all',
+        license: 'MIT',
+        authors: 'Me, him',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
   });
 
   it('creates script files', function () {
@@ -328,21 +328,21 @@ describe('generate script', function () {
 describe('generate service', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({
-              type: 'Service',
-              scriptid: 'service.test',
-              start: 'login',
-              scriptname: 'My service name',
-              kodiVersion: '2.25.0',
-              platforms: 'all',
-              license: 'MIT',
-              authors: 'Me',
-              summary: 'My summary',
-              authorName: 'My real name',
-              email: 'test@test.de',
-              website: 'www.kodi.tv'
-            })
-            .toPromise();
+      .withPrompts({
+        type: 'Service',
+        scriptid: 'service.test',
+        start: 'login',
+        scriptname: 'My service name',
+        kodiVersion: '2.25.0',
+        platforms: 'all',
+        license: 'MIT',
+        authors: 'Me',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
   });
 
   it('creates service files', function () {
@@ -400,21 +400,21 @@ describe('generate service', function () {
 describe('check simplejson for jarvis', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({
-              type: 'Service',
-              scriptid: 'service.test',
-              start: 'login',
-              scriptname: 'My service name',
-              kodiVersion: '2.24.0',
-              platforms: 'all',
-              license: 'MIT',
-              authors: 'Me',
-              summary: 'My summary',
-              authorName: 'My real name',
-              email: 'test@test.de',
-              website: 'www.kodi.tv'
-            })
-            .toPromise();
+      .withPrompts({
+        type: 'Service',
+        scriptid: 'service.test',
+        start: 'login',
+        scriptname: 'My service name',
+        kodiVersion: '2.24.0',
+        platforms: 'all',
+        license: 'MIT',
+        authors: 'Me',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
   });
 
   it('check service addon.xml content', function () {
@@ -426,20 +426,20 @@ describe('check simplejson for jarvis', function () {
 describe('generate subtitle', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({
-              type: 'Subtitle',
-              scriptid: 'subtitle.test',
-              scriptname: 'My subtitle name',
-              kodiVersion: '2.25.0',
-              platforms: 'all',
-              license: 'MIT',
-              authors: 'Me',
-              summary: 'My summary',
-              authorName: 'My real name',
-              email: 'test@test.de',
-              website: 'www.kodi.tv'
-            })
-            .toPromise();
+      .withPrompts({
+        type: 'Subtitle',
+        scriptid: 'subtitle.test',
+        scriptname: 'My subtitle name',
+        kodiVersion: '2.25.0',
+        platforms: 'all',
+        license: 'MIT',
+        authors: 'Me',
+        summary: 'My summary',
+        authorName: 'My real name',
+        email: 'test@test.de',
+        website: 'www.kodi.tv'
+      })
+      .toPromise();
   });
 
   it('creates subtitle files', function () {
