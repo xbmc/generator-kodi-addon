@@ -3,7 +3,6 @@
 import xbmc
 import xbmcaddon
 import xbmcgui
-import re
 import sys
 import logging
 <%_ if (props.kodiVersion == '2.24.0') { -%>
