@@ -1,6 +1,6 @@
 {
   "name": "generator-kodi-addon",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Creates the basic structure for a kodi addon, written in python.",
   "homepage": "https://github.com/xbmc/generator-kodi-addon#installation",
   "author": {
