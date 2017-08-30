@@ -4,7 +4,7 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 describe('generate contextmenu', function () {
-  before(function () {
+  beforeEach(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         type: 'Contextmenu',
@@ -71,7 +71,7 @@ describe('generate contextmenu', function () {
 });
 
 describe('generate module', function () {
-  before(function () {
+  beforeEach(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         type: 'Module',
@@ -126,7 +126,7 @@ describe('generate module', function () {
 });
 
 describe('generate plugin', function () {
-  before(function () {
+  beforeEach(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         type: 'Plugin',
@@ -198,7 +198,7 @@ describe('generate plugin', function () {
 });
 
 describe('generate resource', function () {
-  before(function () {
+  beforeEach(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         type: 'Resource',
@@ -254,7 +254,7 @@ describe('generate resource', function () {
 });
 
 describe('generate script', function () {
-  before(function () {
+  beforeEach(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         type: 'Script',
@@ -326,7 +326,7 @@ describe('generate script', function () {
 });
 
 describe('generate service', function () {
-  before(function () {
+  beforeEach(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         type: 'Service',
@@ -398,7 +398,7 @@ describe('generate service', function () {
 });
 
 describe('check simplejson for jarvis', function () {
-  before(function () {
+  beforeEach(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         type: 'Service',
@@ -424,7 +424,7 @@ describe('check simplejson for jarvis', function () {
 });
 
 describe('generate subtitle', function () {
-  before(function () {
+  beforeEach(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         type: 'Subtitle',
