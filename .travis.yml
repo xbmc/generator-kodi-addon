@@ -1,13 +1,7 @@
-sudo: false
 language: node_js
 node_js:
-  - 'node'
-  - '7'
-  - '6'
-  - '5'
-
-before_script:
-  - 'git config --global user.email "you@example.com"'
-  - 'git config --global user.name "Your Name"'
-
-after_script: 'cat ./coverage/lcov.info | coveralls'
+  - v9
+  - v8
+  - v6
+  - v4
+after_script: cat ./coverage/lcov.info | coveralls
