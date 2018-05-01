@@ -6,8 +6,8 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var helper = require('./validationHelper');
 
-module.exports = yeoman.extend({
-  prompting: function () {
+module.exports = class extends yeoman {
+  prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the awesome ' + chalk.red('generator-kodi') + ' generator!'
@@ -25,17 +25,22 @@ module.exports = yeoman.extend({
       // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
-  },
-  askForAddonData: function () {
+  }
+
+  askForAddonData() {
     var prompts = [];
 
-    var kodiVersion = [{
-      name: 'Krypton',
-      value: '2.25.0'
-    }, {
-      name: 'Jarvis',
-      value: '2.24.0'
-    }];
+    var kodiVersion = [
+      {
+        name: 'Leia',
+        value: '2.25.0'
+      }, {
+        name: 'Krypton',
+        value: '2.25.0'
+      }, {
+        name: 'Jarvis',
+        value: '2.24.0'
+      }];
 
     if (this.props.type == 'Plugin' || this.props.type == 'Script') {
       prompts.push({
@@ -87,57 +92,57 @@ module.exports = yeoman.extend({
       message: scriptidMessage,
       validate: validationHelper
     }, {
-      type: 'input',
-      name: 'scriptname',
-      message: 'Your addon name, it should be easily readable. (for e.g. Hello World)',
-      validate: helper.validateScriptNameLength
-    }, {
-      type: 'list',
-      name: 'kodiVersion',
-      message: 'Choose the minimal Kodi Version your targeting.',
-      choices: kodiVersion,
-      default: 0
-    }, {
-      type: 'checkbox',
-      name: 'platforms',
-      message: 'Which platforms does this run with?',
-      choices: ['all', 'android', 'linux', 'ios', 'osx', 'windx'],
-      validate: helper.validatePlatforms
-    }, {
-      type: 'list',
-      name: 'license',
-      message: 'Choose your license.',
-      choices: require('generator-license').licenses,
-      default: 0
-    }, {
-      type: 'input',
-      name: 'authors',
-      message: 'All author names? (seperated by ,)'
-    }, {
-      type: 'input',
-      name: 'summary',
-      message: 'What does your addon do?'
-    }, {
-      type: 'input',
-      name: 'authorName',
-      message: 'Your real name? We are using this for the license creation.'
-    }, {
-      type: 'input',
-      name: 'email',
-      message: 'Your email address? (for e.g. john.doe@gmail.com)'
-    }, {
-      type: 'input',
-      name: 'website',
-      message: 'Your website URL? (for e.g. www.kodi.tv)'
-    });
+        type: 'input',
+        name: 'scriptname',
+        message: 'Your addon name, it should be easily readable. (for e.g. Hello World)',
+        validate: helper.validateScriptNameLength
+      }, {
+        type: 'list',
+        name: 'kodiVersion',
+        message: 'Choose the minimal Kodi Version your targeting.',
+        choices: kodiVersion,
+        default: 0
+      }, {
+        type: 'checkbox',
+        name: 'platforms',
+        message: 'Which platforms does this run with?',
+        choices: ['all', 'android', 'linux', 'ios', 'osx', 'windx'],
+        validate: helper.validatePlatforms
+      }, {
+        type: 'list',
+        name: 'license',
+        message: 'Choose your license.',
+        choices: require('generator-license').licenses,
+        default: 0
+      }, {
+        type: 'input',
+        name: 'authors',
+        message: 'All author names? (seperated by ,)'
+      }, {
+        type: 'input',
+        name: 'summary',
+        message: 'What does your addon do?'
+      }, {
+        type: 'input',
+        name: 'authorName',
+        message: 'Your real name? We are using this for the license creation.'
+      }, {
+        type: 'input',
+        name: 'email',
+        message: 'Your email address? (for e.g. john.doe@gmail.com)'
+      }, {
+        type: 'input',
+        name: 'website',
+        message: 'Your website URL? (for e.g. www.kodi.tv)'
+      });
 
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       this.props = Object.assign(this.props, props);
     }.bind(this));
-  },
+  }
 
-  default: function () {
+  default() {
     if (path.basename(this.destinationPath()) !== this.props.scriptid) {
       this.log(
         'Your generator must be inside a folder named ' + this.props.scriptid + '\n' +
@@ -146,9 +151,9 @@ module.exports = yeoman.extend({
       mkdirp(this.props.scriptid);
       this.destinationRoot(this.destinationPath(this.props.scriptid));
     }
-  },
+  }
 
-  writing: function () {
+  writing() {
     this.fs.copyTpl(
       this.templatePath('addon.xml'),
       this.destinationPath('addon.xml'), {
@@ -277,4 +282,4 @@ module.exports = yeoman.extend({
       commit: 'Created initial addon structure'
     });
   }
-});
+};
