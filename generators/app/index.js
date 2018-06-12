@@ -149,7 +149,7 @@ module.exports = class extends yeoman {
     }
   }
 
-  writing () {
+  writing() {
     this.fs.copyTpl(
       this.templatePath('addon.xml'),
       this.destinationPath('addon.xml'), {
