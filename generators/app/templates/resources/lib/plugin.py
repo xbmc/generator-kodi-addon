@@ -30,5 +30,5 @@ def show_category(category_id):
         plugin.handle, "", ListItem("Hello category %s!" % category_id))
     endOfDirectory(plugin.handle)
 
-def run():
-    plugin.run()
+def run(argv):
+    plugin.run(argv=argv)
