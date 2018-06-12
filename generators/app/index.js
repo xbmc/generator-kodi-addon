@@ -6,8 +6,8 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var helper = require('./validationHelper');
 
-module.exports = yeoman.extend({
-  prompting: function () {
+module.exports = class extends yeoman {
+  prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the awesome ' + chalk.red('generator-kodi') + ' generator!'
@@ -25,8 +25,9 @@ module.exports = yeoman.extend({
       // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
-  },
-  askForAddonData: function () {
+  }
+
+  askForAddonData() {
     var prompts = [];
 
     var kodiVersion = [{
@@ -135,20 +136,20 @@ module.exports = yeoman.extend({
       // To access props later use this.props.someAnswer;
       this.props = Object.assign(this.props, props);
     }.bind(this));
-  },
+  }
 
-  default: function () {
+  default() {
     if (path.basename(this.destinationPath()) !== this.props.scriptid) {
       this.log(
-        'Your generator must be inside a folder named ' + this.props.scriptid + '\n' +
+        'Your addon must be inside a folder named ' + this.props.scriptid + '\n' +
         'I\'ll automatically create this folder.'
       );
       mkdirp(this.props.scriptid);
       this.destinationRoot(this.destinationPath(this.props.scriptid));
     }
-  },
+  }
 
-  writing: function () {
+  writing () {
     this.fs.copyTpl(
       this.templatePath('addon.xml'),
       this.destinationPath('addon.xml'), {
@@ -277,4 +278,4 @@ module.exports = yeoman.extend({
       commit: 'Created initial addon structure'
     });
   }
-});
+};
