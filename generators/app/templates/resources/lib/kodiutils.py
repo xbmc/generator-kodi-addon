@@ -37,19 +37,19 @@ def set_setting(setting, value):
 
 
 def get_setting_as_bool(setting):
-    return get_setting(setting).lower() == "true"
+    return ADDON.getSettingBool(setting)
 
 
 def get_setting_as_float(setting):
     try:
-        return float(get_setting(setting))
+        return ADDON.getSettingNumber(setting)
     except ValueError:
         return 0
 
 
 def get_setting_as_int(setting):
     try:
-        return int(get_setting_as_float(setting))
+        return ADDON.getSettingInt(setting)
     except ValueError:
         return 0
 
@@ -72,6 +72,5 @@ def kodi_json_request(params):
             return response['result']
         return None
     except KeyError:
-        logger.warn("[%s] %s" %
-                    (params['method'], response['error']['message']))
+        logger.warn("[{}] {}".format(params['method'], response['error']['message']))
         return None
