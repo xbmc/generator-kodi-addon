@@ -60,7 +60,7 @@ describe('generate contextmenu', function () {
     assert.fileContent('main.py', 'from resources.lib import context');
     assert.fileContent('main.py', 'context.run()');
     assert.noFileContent('main.py', 'from resources.lib import plugin');
-    assert.noFileContent('main.py', 'plugin.run()');
+    assert.noFileContent('main.py', 'plugin.run(argv=sys.argv)');
     assert.noFileContent('main.py', 'from resources.lib import script');
     assert.noFileContent('main.py', 'script.show_dialog()');
     assert.noFileContent('main.py', 'from resources.lib import service');
@@ -187,7 +187,7 @@ describe('generate plugin', function () {
     assert.noFileContent('main.py', 'from resources.lib import context');
     assert.noFileContent('main.py', 'context.run()');
     assert.fileContent('main.py', 'from resources.lib import plugin');
-    assert.fileContent('main.py', 'plugin.run()');
+    assert.fileContent('main.py', 'plugin.run(argv=sys.argv)');
     assert.noFileContent('main.py', 'from resources.lib import script');
     assert.noFileContent('main.py', 'script.show_dialog()');
     assert.noFileContent('main.py', 'from resources.lib import service');
@@ -315,7 +315,7 @@ describe('generate script', function () {
     assert.noFileContent('main.py', 'from resources.lib import context');
     assert.noFileContent('main.py', 'context.run()');
     assert.noFileContent('main.py', 'from resources.lib import plugin');
-    assert.noFileContent('main.py', 'plugin.run()');
+    assert.noFileContent('main.py', 'plugin.run(argv=sys.argv)');
     assert.fileContent('main.py', 'from resources.lib import script');
     assert.fileContent('main.py', 'script.show_dialog()');
     assert.noFileContent('main.py', 'from resources.lib import service');
@@ -387,7 +387,7 @@ describe('generate service', function () {
     assert.noFileContent('main.py', 'from resources.lib import context');
     assert.noFileContent('main.py', 'context.run()');
     assert.noFileContent('main.py', 'from resources.lib import plugin');
-    assert.noFileContent('main.py', 'plugin.run()');
+    assert.noFileContent('main.py', 'plugin.run(argv=sys.argv)');
     assert.noFileContent('main.py', 'from resources.lib import script');
     assert.noFileContent('main.py', 'script.show_dialog()');
     assert.fileContent('main.py', 'from resources.lib import service');
@@ -480,7 +480,7 @@ describe('generate subtitle', function () {
     assert.noFileContent('main.py', 'from resources.lib import context');
     assert.noFileContent('main.py', 'context.run()');
     assert.noFileContent('main.py', 'from resources.lib import plugin');
-    assert.noFileContent('main.py', 'plugin.run()');
+    assert.noFileContent('main.py', 'plugin.run(argv=sys.argv)');
     assert.noFileContent('main.py', 'from resources.lib import script');
     assert.noFileContent('main.py', 'script.show_dialog()');
     assert.noFileContent('main.py', 'from resources.lib import service');
